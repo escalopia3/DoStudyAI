@@ -1,0 +1,74 @@
+\documentclass[10.5pt,a4paper]{ctexart}
+
+\usepackage[left=1.35cm,right=1.35cm,top=1.15cm,bottom=1.15cm]{geometry}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{tabularx}
+\usepackage{titlesec}
+\usepackage{fontawesome5}
+\usepackage{setspace}
+\usepackage{microtype}
+
+\definecolor{accent}{HTML}{173F5F}
+\definecolor{muted}{HTML}{555555}
+\hypersetup{colorlinks=true,urlcolor=accent,linkcolor=accent}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlist[itemize]{leftmargin=1.25em,itemsep=1.5pt,topsep=2pt,parsep=0pt,partopsep=0pt}
+\titleformat{\section}{\large\bfseries\color{accent}}{}{0pt}{}[\vspace{-3pt}\color{accent}\titlerule]
+\titlespacing*{\section}{0pt}{7pt}{4pt}
+\newcommand{\skill}[1]{\textbf{#1}}
+\newcommand{\entry}[2]{\textbf{#1}\hfill\textcolor{muted}{#2}}
+
+\begin{document}
+
+\begin{center}
+    {\LARGE\bfseries [姓名]}\\[4pt]
+    \small
+    \faPhone\ [手机]\quad
+    \faEnvelope\ \href{mailto:yourname@example.com}{[邮箱]}\quad
+    \faMapMarker*\ [所在城市]\quad
+    \faGithub\ \href{https://github.com/[用户名]}{github.com/[用户名]}\\[3pt]
+    \textbf{求职意向：Agent 开发实习生 / LLM 应用开发实习生}
+\end{center}
+
+\section{教育背景}
+\entry{[学校名称] \quad [专业] \quad [本科/硕士]}{[20XX.09--20XX.06]}
+\begin{itemize}
+    \item 主修课程：[数据结构、操作系统、计算机网络、数据库、机器学习等]；[GPA / 排名 / 奖项，无突出优势可删除]
+\end{itemize}
+
+\section{专业技能}
+\begin{itemize}
+    \item \skill{Agent / LLM：}掌握 Planner--Executor--Critic、Function Calling、结构化输出、上下文管理、有限轮次反思与证据校验；具备 RAG、混合检索、Prompt 约束及幻觉治理实践。
+    \item \skill{后端与中间件：}熟悉 Java 21、Spring Boot、Python、FastAPI、MySQL、Redis、RocketMQ、MinIO、Qdrant；能够设计异步任务、幂等消费、分布式锁、限流、重试与 Checkpoint。
+    \item \skill{工程能力：}熟悉 Vue 3、SSE、Docker Compose、Git，能够完成 Agent 应用从模型调用、后端编排到前端交互的端到端开发与测试。
+\end{itemize}
+
+\section{项目经历}
+\entry{DoVideoAI——有证据约束的长视频理解 Agent \quad 个人项目}{[20XX.XX--至今]}
+\vspace{2pt}
+
+\textcolor{muted}{\small Java 21 / Spring Boot / LangChain4j / Python / FastAPI / Vue 3 / RocketMQ / Redis / Qdrant / MinIO}
+
+\begin{itemize}
+    \item 面向课程、会议与操作录屏等长视频场景，设计并实现从上传、解析、检索到生成与追问的 \textbf{Video Agent}；将 ASR、OCR、关键帧及时间戳统一为 \texttt{VideoContext}，使核心结论可回溯至原视频证据。
+    \item 构建 \textbf{Planner--Executor--Critic} 受控工作流：Planner 将目标拆解为可检查任务，Executor 基于召回证据生成结构化结果，Critic 校验目标覆盖、输出结构与时间戳证据并定向补证；通过最多 2 轮闭环和 Token、工具调用、上下文预算控制延迟与成本。
+    \item 设计长上下文分层检索，按 5 分钟聚合视频片段，结合关键词匹配与 Qdrant 向量召回筛选 Top-K 原始证据；Embedding 或向量服务异常时降级到本地检索，保证主链路可继续执行。
+    \item 以 RocketMQ、Redisson 和 MySQL/Redis Checkpoint 构建异步、幂等、可恢复任务链路；实现 5 MB 分片续传、内容指纹去重、失败任务重试及 SSE 阶段进度，避免重复模型调用与任务从头执行。
+    \item 将 FFmpeg 音频切片、ASR 与关键帧 OCR 组成双分支解析链路，使用独立有界线程池并行执行；通过场景检测、30 秒保底采样和感知哈希去重兼顾信息覆盖与处理成本。
+    \item 实现通用、学习、审查、创作 4 类分析模式及 Redis 多轮追问记忆；通过 Function Calling 按需查询指定时间段证据，降低无效上下文与无依据生成。
+    \item 编写 Java/Python/前端测试，覆盖幂等、租约 fencing、取消、引用伪造、无证据降级及预算终止等关键边界，并通过用户级/全局限流、指数退避和安全 Markdown 渲染完善系统可靠性。
+\end{itemize}
+
+\textbf{项目链接：}\href{https://github.com/Xiaoc7r/DOVideo-AI}{github.com/Xiaoc7r/DOVideo-AI}
+
+\section{自我评价}
+\begin{itemize}
+    \item 对 Agent 的理解不止于 Prompt 调用，关注证据、状态、工具、预算和终止条件等可控边界，能够将模型能力落到可恢复、可观测的工程链路中。
+    \item 具备独立拆解复杂需求和端到端交付能力，重视真实验收与能力边界，不以 Mock 结果替代模型、检索或中间件的实际可用性。
+\end{itemize}
+
+\end{document}

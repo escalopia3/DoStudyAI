@@ -1,0 +1,7 @@
+# Build the pinned official source when the published MinIO image is unavailable.
+services:
+  minio:
+    image: dovideo-minio-local:RELEASE.2025-09-07T16-13-09Z
+    pull_policy: never
+    build:
+      context: ./docker/minio

@@ -1,0 +1,56 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "1",
+      "default": "1",
+      "title": "Schemaversion",
+      "type": "string"
+    },
+    "jobId": {
+      "pattern": "^[a-zA-Z0-9_-]{8,64}$",
+      "title": "Jobid",
+      "type": "string"
+    },
+    "resourceId": {
+      "pattern": "^[1-9][0-9]{0,18}$",
+      "title": "Resourceid",
+      "type": "string"
+    },
+    "userId": {
+      "pattern": "^[1-9][0-9]{0,18}$",
+      "title": "Userid",
+      "type": "string"
+    },
+    "courseId": {
+      "pattern": "^[1-9][0-9]{0,18}$",
+      "title": "Courseid",
+      "type": "string"
+    },
+    "sourceRevision": {
+      "pattern": "^[a-zA-Z0-9_-]{1,100}$",
+      "title": "Sourcerevision",
+      "type": "string"
+    },
+    "sourceType": {
+      "enum": [
+        "PDF",
+        "DOCX",
+        "PPTX",
+        "VIDEO"
+      ],
+      "title": "Sourcetype",
+      "type": "string"
+    }
+  },
+  "required": [
+    "jobId",
+    "resourceId",
+    "userId",
+    "courseId",
+    "sourceRevision",
+    "sourceType"
+  ],
+  "title": "ParseRequest",
+  "type": "object"
+}

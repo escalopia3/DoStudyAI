@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "updatedOn": "2026-10-16",
+  "scope": "Java/Python parsing integration before LA05 structured chunking",
+  "implementationStatus": "IMPLEMENTED_PENDING_LIVE_INTEGRATION",
+  "releaseAccepted": false,
+  "databaseBoundary": "One MySQL instance and media_db; Java business tables and Python ai_* tables",
+  "retrievalBoundary": "Future keyword and semantic retrieval both in Qdrant; not implemented in this milestone",
+  "checks": [
+    {"name": "Python offline parsing, queue, worker and normalization", "status": "PASSED", "count": 29, "command": "python scripts/test-learning-offline.py", "limits": "SQLite queue, fake Java/object storage; real video normalization subprocess"},
+    {"name": "Java ParsingServiceTest", "status": "PASSED", "count": 10, "command": "mvnw.cmd -o -Dtest=ParsingServiceTest -DforkCount=0 test", "limits": "In-memory repository doubles; not a MySQL integration test"},
+    {"name": "Frontend tests", "status": "PASSED", "count": 33, "command": "node --test src/*.test.js"},
+    {"name": "Frontend production build", "status": "PASSED", "command": "npm run build"},
+    {"name": "Python compileall", "status": "PASSED"},
+    {"name": "FastAPI TestClient", "status": "BLOCKED_ENVIRONMENT", "reason": "Windows sandbox blocks asyncio loopback socket initialization; outside-sandbox test request was declined"},
+    {"name": "Full existing Java suite", "status": "BLOCKED_ENVIRONMENT", "reason": "Mockito JVM attachment pipe blocked; targeted new tests use explicit repository doubles and passed"},
+    {"name": "Real Docling PDF/DOCX/PPTX conversion", "status": "NOT_VERIFIED", "reason": "Dependency installation not confirmed complete; local PDF model artifacts not prepared"},
+    {"name": "MySQL migrations and MQ/MinIO/Java/Python end-to-end", "status": "NOT_RUN", "reason": "Docker inspection approval was declined; no live data or migrations changed"}
+  ],
+  "tasks": [
+    {"id": "LA00", "status": "PARTIAL", "detail": "Baseline compilation and offline tests passed; dependency lock, real parser environment and model capability checks pending"},
+    {"id": "LA01", "status": "PARTIAL", "detail": "Parsing request/event schemas, Python OpenAPI and Java API contract documented; future Agent schemas outside this milestone"},
+    {"id": "LA02", "status": "CODE_READY", "detail": "FastAPI, auth, health, Java client and shared-schema migrations; live startup pending"},
+    {"id": "LA03", "status": "CODE_READY", "detail": "Java durable requests/outbox/MQ/reconciliation; Python leases/fencing/cancel; live integration pending"},
+    {"id": "LA04.1", "status": "CODE_READY", "detail": "Docling adapter and bounded subprocess; real Office/PDF verification pending"},
+    {"id": "LA04.2", "status": "PARTIALLY_VERIFIED", "detail": "VideoContext normalization and subprocess passed on synthetic valid input; live Java context retrieval pending"},
+    {"id": "LA05", "status": "NOT_STARTED", "detail": "Structured chunking intentionally excluded"}
+  ],
+  "runbook": "PARSING-RUNBOOK.md",
+  "nextAction": "Complete parser dependencies/models, then execute approved live MySQL migration and upload-to-PARSED integration before starting LA05"
+}

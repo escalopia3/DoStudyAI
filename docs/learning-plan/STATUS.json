@@ -1,0 +1,864 @@
+{
+  "schemaVersion": 1,
+  "planVersion": "1.0",
+  "productBaseline": "1.1",
+  "technicalBaseline": "1.1",
+  "createdOn": "2026-10-12",
+  "updatedAt": null,
+  "executionMode": "one-task-at-a-time",
+  "currentTaskId": null,
+  "nextTaskId": "T00",
+  "businessImplementationStarted": false,
+  "note": "仅建立计划；所有实现和测试均未执行。卡片及预期类名不代表现有实现。",
+  "tasks": [
+    {
+      "id": "T00",
+      "title": "记录原功能和环境基线",
+      "phase": "A",
+      "dependsOn": [],
+      "card": "tasks/T00.md",
+      "status": "TODO",
+      "sessionLabel": null,
+      "startedAt": null,
+      "completedAt": null,
+      "handoff": null,
+      "codeReference": null,
+      "contractHash": null,
+      "changedFiles": [],
+      "checks": [],
+      "blockers": []
+    },
+    {
+      "id": "T01",
+      "title": "冻结公共契约和样例",
+      "phase": "A",
+      "dependsOn": [
+        "T00"
+      ],
+      "card": "tasks/T01.md",
+      "status": "TODO",
+      "sessionLabel": null,
+      "startedAt": null,
+      "completedAt": null,
+      "handoff": null,
+      "codeReference": null,
+      "contractHash": null,
+      "changedFiles": [],
+      "checks": [],
+      "blockers": []
+    },
+    {
+      "id": "T02",
+      "title": "验证真实文档样本和解析依赖",
+      "phase": "A",
+      "dependsOn": [
+        "T01"
+      ],
+      "card": "tasks/T02.md",
+      "status": "TODO",
+      "sessionLabel": null,
+      "startedAt": null,
+      "completedAt": null,
+      "handoff": null,
+      "codeReference": null,
+      "contractHash": null,
+      "changedFiles": [],
+      "checks": [],
+      "blockers": []
+    },
+    {
+      "id": "T03",
+      "title": "建立新模块开关和隔离接入",
+      "phase": "B",
+      "dependsOn": [
+        "T01",
+        "T02"
+      ],
+      "card": "tasks/T03.md",
+      "status": "TODO",
+      "sessionLabel": null,
+      "startedAt": null,
+      "completedAt": null,
+      "handoff": null,
+      "codeReference": null,
+      "contractHash": null,
+      "changedFiles": [],
+      "checks": [],
+      "blockers": []
+    },
+    {
+      "id": "T04",
+      "title": "创建课程与独立资料基础表",
+      "phase": "B",
+      "dependsOn": [
+        "T03"
+      ],
+      "card": "tasks/T04.md",
+      "status": "TODO",
+      "sessionLabel": null,
+      "startedAt": null,
+      "completedAt": null,
+      "handoff": null,
+      "codeReference": null,
+      "contractHash": null,
+      "changedFiles": [],
+      "checks": [],
+      "blockers": []
+    },
+    {
+      "id": "T05",
+      "title": "持久化新任务与 Outbox",
+      "phase": "B",
+      "dependsOn": [
+        "T04"
+      ],
+      "card": "tasks/T05.md",
+      "status": "TODO",
+      "sessionLabel": null,
+      "startedAt": null,
+      "completedAt": null,
+      "handoff": null,
+      "codeReference": null,
+      "contractHash": null,
+      "changedFiles": [],
+      "checks": [],
+      "blockers": []
+    },
+    {
+      "id": "T06",
+      "title": "实现投递、消费和恢复执行器",
+      "phase": "B",
+      "dependsOn": [
+        "T05"
+      ],
+      "card": "tasks/T06.md",
+      "status": "TODO",
+      "sessionLabel": null,
+      "startedAt": null,
+      "completedAt": null,
+      "handoff": null,
+      "codeReference": null,
+      "contractHash": null,
+      "changedFiles": [],
+      "checks": [],
+      "blockers": []
+    },
+    {
+      "id": "T07",
+      "title": "任务查询、取消和 SSE",
+      "phase": "B",
+      "dependsOn": [
+        "T06"
+      ],
+      "card": "tasks/T07.md",
+      "status": "TODO",
+      "sessionLabel": null,
+      "startedAt": null,
+      "completedAt": null,
+      "handoff": null,
+      "codeReference": null,
+      "contractHash": null,
+      "changedFiles": [],
+      "checks": [],
+      "blockers": []
+    },
+    {
+      "id": "T08",
+      "title": "课程与章节业务 API",
+      "phase": "B",
+      "dependsOn": [
+        "T04",
+        "T07"
+      ],
+      "card": "tasks/T08.md",
+      "status": "TODO",
+      "sessionLabel": null,
+      "startedAt": null,
+      "completedAt": null,
+      "handoff": null,
+      "codeReference": null,
+      "contractHash": null,
+      "changedFiles": [],
+      "checks": [],
+      "blockers": []
+    },
+    {
+      "id": "T09",
+      "title": "资料映射、列表与课程成员关系",
+      "phase": "B",
+      "dependsOn": [
+        "T08"
+      ],
+      "card": "tasks/T09.md",
+      "status": "TODO",
+      "sessionLabel": null,
+      "startedAt": null,
+      "completedAt": null,
+      "handoff": null,
+      "codeReference": null,
+      "contractHash": null,
+      "changedFiles": [],
+      "checks": [],
+      "blockers": []
+    },
+    {
+      "id": "T10",
+      "title": "新增入口壳和课程页面",
+      "phase": "B",
+      "dependsOn": [
+        "T09"
+      ],
+      "card": "tasks/T10.md",
+      "status": "TODO",
+      "sessionLabel": null,
+      "startedAt": null,
+      "completedAt": null,
+      "handoff": null,
+      "codeReference": null,
+      "contractHash": null,
+      "changedFiles": [],
+      "checks": [],
+      "blockers": []
+    },
+    {
+      "id": "T11",
+      "title": "独立解析 CLI 和进程沙箱入口",
+      "phase": "C",
+      "dependsOn": [
+        "T02",
+        "T03"
+      ],
+      "card": "tasks/T11.md",
+      "status": "TODO",
+      "sessionLabel": null,
+      "startedAt": null,
+      "completedAt": null,
+      "handoff": null,
+      "codeReference": null,
+      "contractHash": null,
+      "changedFiles": [],
+      "checks": [],
+      "blockers": []
+    },
+    {
+      "id": "T12",
+      "title": "文本 PDF 提取",
+      "phase": "C",
+      "dependsOn": [
+        "T11"
+      ],
+      "card": "tasks/T12.md",
+      "status": "TODO",
+      "sessionLabel": null,
+      "startedAt": null,
+      "completedAt": null,
+      "handoff": null,
+      "codeReference": null,
+      "contractHash": null,
+      "changedFiles": [],
+      "checks": [],
+      "blockers": []
+    },
+    {
+      "id": "T13",
+      "title": "DOCX 结构提取",
+      "phase": "C",
+      "dependsOn": [
+        "T11"
+      ],
+      "card": "tasks/T13.md",
+      "status": "TODO",
+      "sessionLabel": null,
+      "startedAt": null,
+      "completedAt": null,
+      "handoff": null,
+      "codeReference": null,
+      "contractHash": null,
+      "changedFiles": [],
+      "checks": [],
+      "blockers": []
+    },
+    {
+      "id": "T14",
+      "title": "PPTX 结构提取",
+      "phase": "C",
+      "dependsOn": [
+        "T11"
+      ],
+      "card": "tasks/T14.md",
+      "status": "TODO",
+      "sessionLabel": null,
+      "startedAt": null,
+      "completedAt": null,
+      "handoff": null,
+      "codeReference": null,
+      "contractHash": null,
+      "changedFiles": [],
+      "checks": [],
+      "blockers": []
+    },
+    {
+      "id": "T15",
+      "title": "DOC 与 PPT 基础兼容",
+      "phase": "C",
+      "dependsOn": [
+        "T13",
+        "T14"
+      ],
+      "card": "tasks/T15.md",
+      "status": "TODO",
+      "sessionLabel": null,
+      "startedAt": null,
+      "completedAt": null,
+      "handoff": null,
+      "codeReference": null,
+      "contractHash": null,
+      "changedFiles": [],
+      "checks": [],
+      "blockers": []
+    },
+    {
+      "id": "T16",
+      "title": "扫描 PDF OCR",
+      "phase": "C",
+      "dependsOn": [
+        "T12"
+      ],
+      "card": "tasks/T16.md",
+      "status": "TODO",
+      "sessionLabel": null,
+      "startedAt": null,
+      "completedAt": null,
+      "handoff": null,
+      "codeReference": null,
+      "contractHash": null,
+      "changedFiles": [],
+      "checks": [],
+      "blockers": []
+    },
+    {
+      "id": "T17",
+      "title": "文档上传、解析任务与源块入库",
+      "phase": "C",
+      "dependsOn": [
+        "T06",
+        "T07",
+        "T09",
+        "T12",
+        "T13",
+        "T14",
+        "T15",
+        "T16"
+      ],
+      "card": "tasks/T17.md",
+      "status": "TODO",
+      "sessionLabel": null,
+      "startedAt": null,
+      "completedAt": null,
+      "handoff": null,
+      "codeReference": null,
+      "contractHash": null,
+      "changedFiles": [],
+      "checks": [],
+      "blockers": []
+    },
+    {
+      "id": "T18",
+      "title": "旧视频上下文适配与新提取",
+      "phase": "C",
+      "dependsOn": [
+        "T17"
+      ],
+      "card": "tasks/T18.md",
+      "status": "TODO",
+      "sessionLabel": null,
+      "startedAt": null,
+      "completedAt": null,
+      "handoff": null,
+      "codeReference": null,
+      "contractHash": null,
+      "changedFiles": [],
+      "checks": [],
+      "blockers": []
+    },
+    {
+      "id": "T19",
+      "title": "资料库上传与预览界面",
+      "phase": "C",
+      "dependsOn": [
+        "T10",
+        "T17",
+        "T18"
+      ],
+      "card": "tasks/T19.md",
+      "status": "TODO",
+      "sessionLabel": null,
+      "startedAt": null,
+      "completedAt": null,
+      "handoff": null,
+      "codeReference": null,
+      "contractHash": null,
+      "changedFiles": [],
+      "checks": [],
+      "blockers": []
+    },
+    {
+      "id": "T20",
+      "title": "笔记版本存储与原结果保存",
+      "phase": "D",
+      "dependsOn": [
+        "T18",
+        "T04"
+      ],
+      "card": "tasks/T20.md",
+      "status": "TODO",
+      "sessionLabel": null,
+      "startedAt": null,
+      "completedAt": null,
+      "handoff": null,
+      "codeReference": null,
+      "contractHash": null,
+      "changedFiles": [],
+      "checks": [],
+      "blockers": []
+    },
+    {
+      "id": "T21",
+      "title": "单资料知识提炼和笔记生成",
+      "phase": "D",
+      "dependsOn": [
+        "T20",
+        "T17"
+      ],
+      "card": "tasks/T21.md",
+      "status": "TODO",
+      "sessionLabel": null,
+      "startedAt": null,
+      "completedAt": null,
+      "handoff": null,
+      "codeReference": null,
+      "contractHash": null,
+      "changedFiles": [],
+      "checks": [],
+      "blockers": []
+    },
+    {
+      "id": "T22",
+      "title": "章节与整课笔记聚合",
+      "phase": "D",
+      "dependsOn": [
+        "T21",
+        "T09"
+      ],
+      "card": "tasks/T22.md",
+      "status": "TODO",
+      "sessionLabel": null,
+      "startedAt": null,
+      "completedAt": null,
+      "handoff": null,
+      "codeReference": null,
+      "contractHash": null,
+      "changedFiles": [],
+      "checks": [],
+      "blockers": []
+    },
+    {
+      "id": "T23",
+      "title": "笔记引用验证与编辑失效",
+      "phase": "D",
+      "dependsOn": [
+        "T22"
+      ],
+      "card": "tasks/T23.md",
+      "status": "TODO",
+      "sessionLabel": null,
+      "startedAt": null,
+      "completedAt": null,
+      "handoff": null,
+      "codeReference": null,
+      "contractHash": null,
+      "changedFiles": [],
+      "checks": [],
+      "blockers": []
+    },
+    {
+      "id": "T24",
+      "title": "笔记阅读、编辑和版本界面",
+      "phase": "D",
+      "dependsOn": [
+        "T23",
+        "T19"
+      ],
+      "card": "tasks/T24.md",
+      "status": "TODO",
+      "sessionLabel": null,
+      "startedAt": null,
+      "completedAt": null,
+      "handoff": null,
+      "codeReference": null,
+      "contractHash": null,
+      "changedFiles": [],
+      "checks": [],
+      "blockers": []
+    },
+    {
+      "id": "T25",
+      "title": "索引快照与笔记发布事务",
+      "phase": "D",
+      "dependsOn": [
+        "T23",
+        "T06",
+        "T24"
+      ],
+      "card": "tasks/T25.md",
+      "status": "TODO",
+      "sessionLabel": null,
+      "startedAt": null,
+      "completedAt": null,
+      "handoff": null,
+      "codeReference": null,
+      "contractHash": null,
+      "changedFiles": [],
+      "checks": [],
+      "blockers": []
+    },
+    {
+      "id": "T26",
+      "title": "课程双层混合检索",
+      "phase": "D",
+      "dependsOn": [
+        "T25"
+      ],
+      "card": "tasks/T26.md",
+      "status": "TODO",
+      "sessionLabel": null,
+      "startedAt": null,
+      "completedAt": null,
+      "handoff": null,
+      "codeReference": null,
+      "contractHash": null,
+      "changedFiles": [],
+      "checks": [],
+      "blockers": []
+    },
+    {
+      "id": "T27",
+      "title": "删除失效和后台清理闭环",
+      "phase": "D",
+      "dependsOn": [
+        "T26",
+        "T09"
+      ],
+      "card": "tasks/T27.md",
+      "status": "TODO",
+      "sessionLabel": null,
+      "startedAt": null,
+      "completedAt": null,
+      "handoff": null,
+      "codeReference": null,
+      "contractHash": null,
+      "changedFiles": [],
+      "checks": [],
+      "blockers": []
+    },
+    {
+      "id": "T28",
+      "title": "课程 Agent 工具与受控循环",
+      "phase": "E",
+      "dependsOn": [
+        "T26",
+        "T27"
+      ],
+      "card": "tasks/T28.md",
+      "status": "TODO",
+      "sessionLabel": null,
+      "startedAt": null,
+      "completedAt": null,
+      "handoff": null,
+      "codeReference": null,
+      "contractHash": null,
+      "changedFiles": [],
+      "checks": [],
+      "blockers": []
+    },
+    {
+      "id": "T29",
+      "title": "课程会话、运行记录与 API",
+      "phase": "E",
+      "dependsOn": [
+        "T28",
+        "T07"
+      ],
+      "card": "tasks/T29.md",
+      "status": "TODO",
+      "sessionLabel": null,
+      "startedAt": null,
+      "completedAt": null,
+      "handoff": null,
+      "codeReference": null,
+      "contractHash": null,
+      "changedFiles": [],
+      "checks": [],
+      "blockers": []
+    },
+    {
+      "id": "T30",
+      "title": "课程专家对话界面",
+      "phase": "E",
+      "dependsOn": [
+        "T29",
+        "T24"
+      ],
+      "card": "tasks/T30.md",
+      "status": "TODO",
+      "sessionLabel": null,
+      "startedAt": null,
+      "completedAt": null,
+      "handoff": null,
+      "codeReference": null,
+      "contractHash": null,
+      "changedFiles": [],
+      "checks": [],
+      "blockers": []
+    },
+    {
+      "id": "T31",
+      "title": "知识点、考试范围与复习配置",
+      "phase": "F",
+      "dependsOn": [
+        "T28",
+        "T09"
+      ],
+      "card": "tasks/T31.md",
+      "status": "TODO",
+      "sessionLabel": null,
+      "startedAt": null,
+      "completedAt": null,
+      "handoff": null,
+      "codeReference": null,
+      "contractHash": null,
+      "changedFiles": [],
+      "checks": [],
+      "blockers": []
+    },
+    {
+      "id": "T32",
+      "title": "生成可验证客观练习",
+      "phase": "F",
+      "dependsOn": [
+        "T31"
+      ],
+      "card": "tasks/T32.md",
+      "status": "TODO",
+      "sessionLabel": null,
+      "startedAt": null,
+      "completedAt": null,
+      "handoff": null,
+      "codeReference": null,
+      "contractHash": null,
+      "changedFiles": [],
+      "checks": [],
+      "blockers": []
+    },
+    {
+      "id": "T33",
+      "title": "答题计分与掌握记录",
+      "phase": "F",
+      "dependsOn": [
+        "T32"
+      ],
+      "card": "tasks/T33.md",
+      "status": "TODO",
+      "sessionLabel": null,
+      "startedAt": null,
+      "completedAt": null,
+      "handoff": null,
+      "codeReference": null,
+      "contractHash": null,
+      "changedFiles": [],
+      "checks": [],
+      "blockers": []
+    },
+    {
+      "id": "T34",
+      "title": "复习计划与执行进度",
+      "phase": "F",
+      "dependsOn": [
+        "T33"
+      ],
+      "card": "tasks/T34.md",
+      "status": "TODO",
+      "sessionLabel": null,
+      "startedAt": null,
+      "completedAt": null,
+      "handoff": null,
+      "codeReference": null,
+      "contractHash": null,
+      "changedFiles": [],
+      "checks": [],
+      "blockers": []
+    },
+    {
+      "id": "T35",
+      "title": "期末复习工作台",
+      "phase": "F",
+      "dependsOn": [
+        "T34",
+        "T30"
+      ],
+      "card": "tasks/T35.md",
+      "status": "TODO",
+      "sessionLabel": null,
+      "startedAt": null,
+      "completedAt": null,
+      "handoff": null,
+      "codeReference": null,
+      "contractHash": null,
+      "changedFiles": [],
+      "checks": [],
+      "blockers": []
+    },
+    {
+      "id": "T36",
+      "title": "系统质量和故障评估",
+      "phase": "G",
+      "dependsOn": [
+        "T35",
+        "T27"
+      ],
+      "card": "tasks/T36.md",
+      "status": "TODO",
+      "sessionLabel": null,
+      "startedAt": null,
+      "completedAt": null,
+      "handoff": null,
+      "codeReference": null,
+      "contractHash": null,
+      "changedFiles": [],
+      "checks": [],
+      "blockers": []
+    },
+    {
+      "id": "T37",
+      "title": "旧功能回归、负载与发布演练",
+      "phase": "G",
+      "dependsOn": [
+        "T36"
+      ],
+      "card": "tasks/T37.md",
+      "status": "TODO",
+      "sessionLabel": null,
+      "startedAt": null,
+      "completedAt": null,
+      "handoff": null,
+      "codeReference": null,
+      "contractHash": null,
+      "changedFiles": [],
+      "checks": [],
+      "blockers": []
+    }
+  ],
+  "gates": [
+    {
+      "id": "G0",
+      "title": "基线与契约",
+      "taskIds": [
+        "T00",
+        "T01",
+        "T02"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "G1",
+      "title": "新模块与课程基础",
+      "taskIds": [
+        "T03",
+        "T04",
+        "T05",
+        "T06",
+        "T07",
+        "T08",
+        "T09",
+        "T10"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "G2",
+      "title": "多资料接入",
+      "taskIds": [
+        "T11",
+        "T12",
+        "T13",
+        "T14",
+        "T15",
+        "T16",
+        "T17",
+        "T18",
+        "T19"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "G3",
+      "title": "笔记与知识库",
+      "taskIds": [
+        "T20",
+        "T21",
+        "T22",
+        "T23",
+        "T24",
+        "T25",
+        "T26",
+        "T27"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "G4",
+      "title": "课程专家",
+      "taskIds": [
+        "T28",
+        "T29",
+        "T30"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "G5",
+      "title": "复习闭环",
+      "taskIds": [
+        "T31",
+        "T32",
+        "T33",
+        "T34",
+        "T35"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "G6",
+      "title": "系统验收",
+      "taskIds": [
+        "T36",
+        "T37"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "blockers": []
+    }
+  ]
+}

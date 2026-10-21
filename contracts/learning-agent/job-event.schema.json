@@ -1,0 +1,72 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "1",
+      "default": "1",
+      "title": "Schemaversion",
+      "type": "string"
+    },
+    "jobId": {
+      "title": "Jobid",
+      "type": "string"
+    },
+    "resourceId": {
+      "title": "Resourceid",
+      "type": "string"
+    },
+    "sourceRevision": {
+      "title": "Sourcerevision",
+      "type": "string"
+    },
+    "sequence": {
+      "minimum": 1,
+      "title": "Sequence",
+      "type": "integer"
+    },
+    "state": {
+      "enum": [
+        "QUEUED",
+        "RUNNING",
+        "PARSED",
+        "FAILED",
+        "CANCELLED"
+      ],
+      "title": "State",
+      "type": "string"
+    },
+    "artifactPrefix": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Artifactprefix"
+    },
+    "errorCode": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Errorcode"
+    }
+  },
+  "required": [
+    "jobId",
+    "resourceId",
+    "sourceRevision",
+    "sequence",
+    "state"
+  ],
+  "title": "JobEvent",
+  "type": "object"
+}

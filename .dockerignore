@@ -1,0 +1,14 @@
+.env
+.env.*
+.python-deps
+.venv
+.learning-work
+.learning-models
+**/__pycache__
+**/node_modules
+server/target
+mysql
+redis
+minio
+qdrant
+.maven

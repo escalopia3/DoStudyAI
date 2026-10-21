@@ -1,0 +1,20 @@
+{
+  "version": "2.0-first-loop",
+  "updatedOn": "2026-10-13",
+  "scope": "登录→我的课程→新建/进入课程→创建章节→上传/加入资料",
+  "implementationStatus": "CODE_READY_PENDING_ENVIRONMENT_VALIDATION",
+  "releaseAccepted": false,
+  "environmentDownloadsPerformedThisTurn": false,
+  "implementation": "IMPLEMENTATION.md",
+  "setup": "SETUP-WINDOWS.md",
+  "checks": [
+    { "name": "Frontend offline tests", "status": "PASSED", "passed": 22 },
+    { "name": "Extension tests", "status": "PASSED", "passed": 54 },
+    { "name": "Vue script syntax (not template compilation)", "status": "PASSED" },
+    { "name": "Backend tests (12 new tests plus existing suite)", "status": "NOT_RUN", "reason": "Dependencies not installed; user requested no downloads" },
+    { "name": "Vue production build and full frontend tests", "status": "NOT_RUN", "reason": "Vue/Vite dependencies missing" },
+    { "name": "MySQL migrations and end-to-end upload", "status": "NOT_RUN", "reason": "Runtime environment not started" }
+  ],
+  "nextAction": "Prepare environment using SETUP-WINDOWS.md, then run compilation/tests/migrations and real browser acceptance",
+  "excluded": ["Document parsing", "Agent learning notes", "Course expert chat", "Exam review", "Course/chapter editing and deletion", "Resource relocation"]
+}

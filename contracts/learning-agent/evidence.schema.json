@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "evidence.schema.json",
+  "title": "LearningEvidence",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["sourceId", "resourceId", "indexRevision", "chunkId", "contentHash", "titlePath", "content", "locators"],
+  "properties": {
+    "sourceId": {"type": "string", "pattern": "^S[1-9][0-9]*$"},
+    "resourceId": {"type": "string"},
+    "indexRevision": {"type": "string"},
+    "chunkId": {"type": "string"},
+    "parentId": {"type": ["string", "null"]},
+    "contentHash": {"type": "string"},
+    "titlePath": {"type": "array", "items": {"type": "string"}},
+    "content": {"type": "string"},
+    "locators": {"type": "array", "items": {"type": "object"}},
+    "score": {"type": "number"}
+  }
+}

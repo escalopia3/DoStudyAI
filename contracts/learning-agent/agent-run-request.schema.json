@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "agent-run-request.schema.json",
+  "title": "LearningAgentRunRequest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "runId", "conversationId", "userId", "courseId", "mode", "question", "authorizedResourceIds", "deadlineAt"],
+  "properties": {
+    "schemaVersion": {"const": "1"},
+    "runId": {"type": "string", "minLength": 8, "maxLength": 64},
+    "conversationId": {"type": "string", "minLength": 8, "maxLength": 64},
+    "userId": {"type": "string", "pattern": "^[1-9][0-9]{0,18}$"},
+    "courseId": {"type": "string", "pattern": "^[1-9][0-9]{0,18}$"},
+    "mode": {"enum": ["QA", "TUTORING", "NOTES", "KEY_POINTS"]},
+    "question": {"type": "string", "minLength": 1, "maxLength": 4000},
+    "authorizedResourceIds": {"type": "array", "maxItems": 200, "uniqueItems": true, "items": {"type": "string", "pattern": "^[1-9][0-9]{0,18}$"}},
+    "history": {"type": "array", "maxItems": 20, "items": {"type": "object"}},
+    "deadlineAt": {"type": "number"}
+  }
+}
