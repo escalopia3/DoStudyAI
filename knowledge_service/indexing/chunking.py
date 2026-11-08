@@ -41,6 +41,11 @@ class Chunk:
     nextChunkId: str | None = None
     childIds: list[str] = field(default_factory=list)
     keywords: list[str] = field(default_factory=list)
+    sourceSpans: list[dict[str, Any]] = field(default_factory=list)
+    sectionId: str = ''
+    resourceRevisionId: str = ''
+    chunkingVersion: str = ''
+    qualityFlags: list[str] = field(default_factory=list)
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)

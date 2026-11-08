@@ -38,7 +38,7 @@ def build_converter(artifacts_path, timeout):
         format_options={InputFormat.PDF: PdfFormatOption(pipeline_options=options)})
 
 
-def parse(path, revision, destination, artifacts_path="", timeout=300, max_pages=500):
+def parse(path, revision, destination, artifacts_path="", timeout=300, max_pages=500, formula_reviews=""):
     validate_file(path)
     if path.suffix == ".json":
         raw = json.loads(path.read_text(encoding="utf-8"))
@@ -52,6 +52,8 @@ def parse(path, revision, destination, artifacts_path="", timeout=300, max_pages
             def convert(self, source):
                 return converter.convert(source, max_num_pages=max_pages, max_file_size=50*1024*1024)
         doc, raw = convert_document(path, revision, LimitedConverter())
+    from knowledge_service.parsing.formulas import enrich
+    doc = enrich(doc,path,formula_reviews)
     if not doc.elements: raise ValueError("EMPTY_DOCUMENT")
     return save_artifacts(doc, destination)
 
@@ -64,5 +66,6 @@ if __name__ == "__main__":
     parser.add_argument("--artifacts", default="")
     parser.add_argument("--timeout", type=int, default=300)
     parser.add_argument("--max-pages", type=int, default=500)
+    parser.add_argument("--formula-reviews", default="")
     args = parser.parse_args()
-    parse(args.source, args.revision, args.destination, args.artifacts, args.timeout, args.max_pages)
+    parse(args.source, args.revision, args.destination, args.artifacts, args.timeout, args.max_pages,args.formula_reviews)

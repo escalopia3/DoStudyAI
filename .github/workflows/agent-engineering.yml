@@ -1,0 +1,55 @@
+name: Agent engineering checks
+
+on:
+  push:
+    paths: ['backend/**', 'knowledge_service/**', 'tools/**', 'datasets/agent/**', '.github/workflows/agent-engineering.yml']
+  pull_request:
+    paths: ['backend/**', 'knowledge_service/**', 'tools/**', 'datasets/agent/**', '.github/workflows/agent-engineering.yml']
+  workflow_dispatch:
+
+jobs:
+  deterministic:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -e ./backend pytest python-multipart
+      - name: Offline agent and failure tests (no model calls)
+        env:
+          PYTHONPATH: backend
+        run: >-
+          python -m pytest backend/tests/test_agent_engineering.py
+          backend/tests/test_agent_closure.py
+          backend/tests/test_agent_loop.py backend/tests/test_completion.py
+          backend/tests/test_qa_context_recovery.py backend/tests/test_evidence_selection.py
+          backend/tests/test_bootstrap.py knowledge_service/tests -q
+  postgres-recovery:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: agent_test
+          POSTGRES_PASSWORD: isolated-ci-only
+          POSTGRES_DB: agent_admin
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd pg_isready --health-interval 5s --health-timeout 5s --health-retries 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -e ./backend pytest python-multipart
+      - name: Isolated migrations and recovery
+        env:
+          DOVIDEO_DATABASE_URL: postgresql+psycopg://agent_test:isolated-ci-only@localhost:5432/agent_admin
+          DOVIDEO_MINIO_ENDPOINT: http://localhost:9000
+          DOVIDEO_MINIO_ACCESS_KEY: isolated-ci-only
+          DOVIDEO_MINIO_SECRET_KEY: isolated-ci-only
+          DOVIDEO_MINIO_BUCKET: agent-engineering-test
+          DOVIDEO_QDRANT_URL: http://localhost:6333
+          DOVIDEO_QDRANT_API_KEY: isolated-ci-only
+        run: python tools/verify_agent_postgres.py

@@ -6,7 +6,6 @@
 .learning-models
 **/__pycache__
 **/node_modules
-server/target
 mysql
 redis
 minio

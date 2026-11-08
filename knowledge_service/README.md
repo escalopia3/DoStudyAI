@@ -12,7 +12,7 @@ dense + BM25 索引、版本发布和授权检索。运行时固定使用项目�
 python -m knowledge_service.main input.json --kind docling --source-type PDF --revision rev-001 --output artifacts/rev-001
 ```
 
-现有 Java `VideoContext`（source、segments；每个片段含 startMs、endMs、transcript、ocrTexts、evidenceFrames）：
+已提取的视频上下文（source、segments；每个片段含 startMs、endMs、transcript、ocrTexts、evidenceFrames）：
 
 ```powershell
 python -m knowledge_service.main video-context.json --kind video --revision rev-002 --output artifacts/rev-002
@@ -31,8 +31,7 @@ python -m knowledge_service.main video-context.json --kind video --revision rev-
 
 直接处理 PDF/DOCX/PPTX 需要调用方已安装并配置好的 Docling converter。
 本模块不创建默认 converter，因为其模型初始化可能联网下载。converter 的本地模型配置、OCR 引擎和网络策略由调用方管理。
-DOC/PPT 旧格式仍需外部转换。PDF/DOCX/PPTX/VIDEO 的解析产物会由
-`agent_service.worker` 自动进入索引状态机，只有发布成功后才标记 `READY`。
+DOC/PPT 旧格式仍需外部转换。新版 `app.worker` 负责解析与索引任务，索引发布后才对检索生效。
 
 ## 数据约定
 
