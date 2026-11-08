@@ -1,0 +1,30 @@
+name: dovideo-v2
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: dovideo_v2
+      POSTGRES_USER: dovideo
+      POSTGRES_PASSWORD: ${DOVIDEO_POSTGRES_PASSWORD:?required}
+    ports: ["127.0.0.1:5433:5432"]
+    volumes: ["postgres-v2:/var/lib/postgresql/data"]
+  minio:
+    image: dovideo-minio-local:RELEASE.2025-09-07T16-13-09Z
+    pull_policy: never
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: ${DOVIDEO_MINIO_ACCESS_KEY:?required}
+      MINIO_ROOT_PASSWORD: ${DOVIDEO_MINIO_SECRET_KEY:?required}
+      MINIO_API_CORS_ALLOW_ORIGIN: ${DOVIDEO_MINIO_CORS_ORIGINS:-http://localhost:5173,http://127.0.0.1:5173}
+    ports: ["127.0.0.1:9100:9000", "127.0.0.1:9101:9001"]
+    volumes: ["minio-v2:/data"]
+  qdrant:
+    image: qdrant/qdrant:v1.18.2
+    environment:
+      QDRANT__SERVICE__API_KEY: ${DOVIDEO_QDRANT_API_KEY:?required}
+    ports: ["127.0.0.1:6433:6333"]
+    volumes: ["qdrant-v2:/qdrant/storage"]
+volumes:
+  postgres-v2:
+  minio-v2:
+  qdrant-v2:

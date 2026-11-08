@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dovideo-backend"
+version = "0.1.0"
+requires-python = ">=3.11,<3.14"
+dependencies = ["fastapi>=0.115,<1", "uvicorn>=0.30,<1", "sqlalchemy>=2,<3", "psycopg[binary]>=3.2,<4", "alembic>=1.14,<2", "httpx>=0.28,<1", "minio>=7.2,<8", "qdrant-client>=1.14,<2", "langgraph>=1,<2"]
+
+[project.optional-dependencies]
+indexing = ["sentence-transformers>=5,<6"]
+tokens = ["tokenizers>=0.21,<1"]
+parsing = ["docling>=2,<3", "rapidocr>=3,<4", "onnxruntime>=1,<2", "faster-whisper>=1,<2"]
+agent-server = ["langgraph-cli[inmem]>=0.4,<1"]
+mcp = ["mcp>=2,<3"]
+
+[tool.setuptools.packages.find]
+where = [".", ".."]
+include = ["app", "app.*", "dovideo", "dovideo.*", "knowledge_service", "knowledge_service.*"]
+exclude = ["knowledge_service.tests*"]

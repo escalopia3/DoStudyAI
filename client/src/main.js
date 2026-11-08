@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
 import './style.css'
-import App from './App.vue'
+import DoStudy from './features/v2/V2Workbench.vue'
 
-createApp(App).mount('#app')
+createApp(DoStudy).mount('#app')

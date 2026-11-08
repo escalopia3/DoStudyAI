@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "original_dataset_sha256": "f74dbafb38d6493008161973413390d0265eeddeaa75578bc229881df0d76f0d",
+  "original_cases_unchanged": true,
+  "combined_count": 46,
+  "negative_count": 10,
+  "negative_ratio": 0.21739130434782608,
+  "supplementary_cases_compared_to_historical_baseline": false,
+  "reviewer": "Codex independent AI review, not human gold",
+  "files": {
+    "golden-46.jsonl": "5ae9a66a87916f8cb3d696850fca989de18c70f3aa61b086f08a61e17d5e58f2",
+    "negative-6.jsonl": "e8a8fffeae4e66c3d3b0009ed1679f02bcbf86bb2494ce7b4b79c47d5280ea61"
+  }
+}

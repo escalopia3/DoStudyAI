@@ -7,7 +7,7 @@ const ALLOWED_TAGS = new Set([
   'TABLE', 'THEAD', 'TBODY', 'TR', 'TH', 'TD'
 ])
 
-export function renderMarkdown(markdown) {
+export function renderMarkdown(markdown, { parser = marked, videoTimestamps = true } = {}) {
   if (!markdown) return ''
 
   let cleanText = markdown.replace(/<think>[\s\S]*?<\/think>/gi, '')
@@ -15,7 +15,8 @@ export function renderMarkdown(markdown) {
   if (!cleanText.trim()) cleanText = markdown
 
   const template = document.createElement('template')
-  template.innerHTML = marked.parser(linkTimestampTokens(marked.lexer(cleanText)))
+  const tokens = parser.lexer(cleanText)
+  template.innerHTML = parser.parser(videoTimestamps ? linkTimestampTokens(tokens) : tokens)
   template.content.querySelectorAll('*').forEach(sanitizeNode)
   return template.innerHTML
 }

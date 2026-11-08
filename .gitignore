@@ -4,7 +4,7 @@
 .env
 .env.*
 !.env.example
-server/target/
+backend/build/
 client/node_modules/
 client/dist/
 client/.npm-cache/
